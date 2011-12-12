@@ -1,0 +1,10 @@
+import "xpi/types/gid_list.hpp"
+
+managed component xpi::components::multicaster
+{
+  xpi::types::gid_list gids;
+  hpx::actions::dynamic_argument args;
+
+  void init(xpi::types::gid_list, hpx::actions::dynamic_argument);
+  void fire();
+}

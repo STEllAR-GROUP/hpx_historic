@@ -1,0 +1,12 @@
+import "xpi/types/gid_list.hpp"
+import "hpx/lcos/mutex.hpp"
+import "xpi.h"
+managed component xpi::components::mutex {
+    xpi::types::gid_list gids;
+    XPI_Gid lock;
+    std::list<XPI_Gid> queue;
+    hpx::lcos::mutex mtx;
+    void reg(xpi::types::gid_list);
+    void wait(xpi::types::gid_list);
+    void unreg(xpi::types::gid_list);
+}

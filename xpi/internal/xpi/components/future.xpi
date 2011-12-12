@@ -1,0 +1,13 @@
+import "xpi/types/gid_list.hpp"
+import "xpi.h"
+managed component xpi::components::future
+{
+	hpx::actions::dynamic_argument _arg;	
+	int result;	
+	bool isEager;
+	hpx::lcos::mutex mtx;
+	
+    void reg(hpx::actions::dynamic_argument, bool);
+    void wait(xpi::types::gid_list);
+    void unreg();
+}

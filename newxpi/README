@@ -1,0 +1,17 @@
+Dependencies:
+HPX
+Boost 1.45+
+CMake
+
+To build:
+set HPX_ROOT and BOOST_ROOT to point to your hpx and boost installations respectively
+create a build directory (e.g. build)
+enter said build directory (cd build)
+
+cmake ..
+make
+make install
+
+Example code:
+There is currently a fibonacci example (test.c and foo.c)
+test.c contains boilerplate code and foo.c contains the fib action. To use this example you must modify foo.ini to have the path point to the foo library produced (so that at runtime it can locate the fib action) and install it in HPX_ROOT/share/hpx/ini

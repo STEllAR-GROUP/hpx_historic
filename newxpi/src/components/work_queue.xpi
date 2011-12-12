@@ -1,0 +1,18 @@
+// Copyright (c) 2011 Alex Nagelberg
+// Distributed under the Boost Software License, Version 1.0. (See accompanying
+// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+
+#include "xpi.h"
+#include "xpi_buffer.hpp"
+#include "hpx/runtime/threads/threadmanager.hpp"
+
+managed component work_queue
+{
+    XPI_Buffer_impl receptor;
+//    hpx::threads::threadmanager_impl::scheduling_policy_type queue;
+ 
+    void init(XPI_Buffer_impl); // takes receptor
+    void wait(hpx::naming::id_type); // adds thread to queue, will put thread to sleep and wait for turn in line, then wake up thread
+}
+
